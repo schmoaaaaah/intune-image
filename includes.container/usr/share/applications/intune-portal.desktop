@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=Microsoft Intune
+Comment=Microsoft Intune
+Exec=env INTUNE_NO_LOG_STDOUT=1 /opt/microsoft/intune/bin/intune-portal
+Icon=intune
+Terminal=false

@@ -1,0 +1,17 @@
+Name: Microsoft Intune
+Default: yes
+Priority: 768
+
+Auth-Type: Additional
+Auth-Initial:
+    optional pam_intune.so
+
+Password-Type: Primary
+Password:
+    optional pam_intune.so
+
+Session-Type: Additional
+Session:
+    optional pam_intune.so
+Session-noninteractive:
+    optional pam_intune.so

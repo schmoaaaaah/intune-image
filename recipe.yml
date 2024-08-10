@@ -45,26 +45,6 @@ stages:
     - apt update
     - apt install -y microsoft-edge-stable
 
-  #- name: install-ms-deps
-  #  type: shell
-  #  source:
-  #    type: file
-  #    urlL: 'https://packages.microsoft.com/ubuntu/22.04/prod/pool/main/m/msalsdk-dbusclient/msalsdk-dbusclient_1.0.1_amd64.deb'
-  #  commands:
-  #  - dpkg -i /sources/install-ms-deps/msalsdk-dbusclient_1.0.1_amd64.deb
-  
-  - name: intune
-    type: shell
-    commands:
-      - apt-get install -y --ignore-missing intune-portal
-      - dpkg --configure -a
-  
-  #- name: install-intune
-  #  type: shell
-  #  commands:
-  #  - curl -fSsL https://packages.microsoft.com/ubuntu/22.04/prod/pool/main/i/intune-portal/intune-portal_1.2405.17-jammy_amd64.deb -o /tmp/intune.deb
-  #  - dpkg -i /tmp/intune.deb --force-depends
-
   # Put your custom actions before this comment
 
   - name: set-image-name-abroot

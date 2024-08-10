@@ -1,0 +1,8 @@
+[Unit]
+Description=Intune Agent
+
+[Service]
+Type=oneshot
+ExecStart=/opt/microsoft/intune/bin/intune-agent
+StateDirectory=intune
+Slice=background.slice

@@ -1,0 +1,12 @@
+[Unit]
+Description=Intune daemon
+Requires=intune-daemon.socket
+
+[Service]
+ExecStart=/opt/microsoft/intune/bin/intune-daemon
+ExecReload=/bin/kill -HUP $MAINPID
+StateDirectory=intune
+StateDirectoryMode=0700
+
+[Install]
+Also=intune-daemon.socket
