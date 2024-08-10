@@ -56,7 +56,7 @@ stages:
   - name: intune
     type: shell
     commands:
-      - apt install -y --ignore-missing intune-portal
+      - apt-get install -y --ignore-missing intune-portal
       - dpkg --configure -a
   
   #- name: install-intune
