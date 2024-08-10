@@ -24,7 +24,7 @@ stages:
   - name: ms-repo
     type: shell
     commands:
-    - curl -fSsL https://packages.microsoft.com/config/debian/12/packages-microsoft-prod.deb -o /tmp/packages-microsoft-prod.deb
+    - curl -fSsL https://packages.microsoft.com/config/ubuntu/22.04/packages-microsoft-prod.deb -o /tmp/packages-microsoft-prod.deb
     - dpkg -i /tmp/packages-microsoft-prod.deb
     - apt-get update
   
