@@ -1,9 +1,0 @@
-[Unit]
-Description=Intune daemon control socket
-
-[Socket]
-ListenStream=/run/intune/daemon.socket
-SocketMode=0666
-
-[Install]
-WantedBy=sockets.target

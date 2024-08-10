@@ -44,6 +44,12 @@ stages:
     - echo 'deb [signed-by=/usr/share/keyrings/microsoft-edge.gpg] https://packages.microsoft.com/repos/edge stable main' | tee /etc/apt/sources.list.d/microsoft-edge.list
     - apt update
     - apt install -y microsoft-edge-stable
+  
+  - name: install-intune
+    type: shell
+    commands:
+    - cd /
+    - tar -xvf /data.tar
 
   # Put your custom actions before this comment
 
