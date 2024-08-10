@@ -20,6 +20,11 @@ stages:
     commands:
     - lpkg --unlock
     - apt-get update
+  
+  - name: install-deps
+    type: shell
+    commands:
+    - apt-get install -y libjavascriptcoregtk libwebkit2gtk
 
   - name: install-edge
     type: shell
@@ -29,6 +34,13 @@ stages:
     - echo 'deb [signed-by=/usr/share/keyrings/microsoft-edge.gpg] https://packages.microsoft.com/repos/edge stable main' | tee /etc/apt/sources.list.d/microsoft-edge.list
     - apt update
     - apt install -y microsoft-edge-stable
+
+  - name: install-ms-deps
+    type: shell
+    commands:
+    - wget -O /tmp/msalsdk-dbusclient.deb 'https://packages.microsoft.com/ubuntu/22.04/prod/pool/main/m/msalsdk-dbusclient/msalsdk-dbusclient_1.0.1_amd64.deb'
+    - apt install -y /tmp/msalsdk-dbusclient.deb
+    - rm -f /tmp/msalsdk-dbusclient.deb
   
   - name: install-intune
     type: shell
