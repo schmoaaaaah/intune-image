@@ -23,11 +23,9 @@ stages:
   
   - name: ms-repo
     type: shell
-    source:
-      type: file
-      url: 'https://packages.microsoft.com/config/debian/12/packages-microsoft-prod.deb'
     commands:
-    - dpkg -i /sources/ms-repo/packages-microsoft-prod.deb
+    - curl -fSsL https://packages.microsoft.com/config/debian/12/packages-microsoft-prod.deb -o /tmp/packages-microsoft-prod.deb
+    - dpkg -i /tmp/packages-microsoft-prod.deb
   
   - name: install-deps
     type: apt
@@ -59,7 +57,8 @@ stages:
       type: file
       url: 'https://packages.microsoft.com/ubuntu/22.04/prod/pool/main/i/intune-portal/intune-portal_1.2405.17-jammy_amd64.deb'
     commands:
-    - dpkg -i /sources/install-intune/intune-portal_1.2211.21_amd64.deb
+    - curl -fSsL https://packages.microsoft.com/ubuntu/22.04/prod/pool/main/i/intune-portal/intune-portal_1.2405.17-jammy_amd64.deb -o /tmp/intune.deb
+    - dpkg -i /tmp/intune.deb
 
   # Put your custom actions before this comment
 
