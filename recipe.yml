@@ -54,10 +54,10 @@ stages:
   #  - dpkg -i /sources/install-ms-deps/msalsdk-dbusclient_1.0.1_amd64.deb
   
   - name: intune
-    type: apt
-    source:
-      packages:
-      - intune-portal
+    type: shell
+    commands:
+      - apt install -y --ignore-missing intune-portal
+      - dpkg --configure -a
   
   #- name: install-intune
   #  type: shell
