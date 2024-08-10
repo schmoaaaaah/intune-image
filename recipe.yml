@@ -22,9 +22,10 @@ stages:
     - apt-get update
   
   - name: install-deps
-    type: shell
-    commands:
-    - apt-get install -y libjavascriptcoregtk libwebkit2gtk
+    type: apt
+    source:
+      packages:
+      - libwebkit2gtk
 
   - name: install-edge
     type: shell
