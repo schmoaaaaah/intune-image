@@ -62,7 +62,7 @@ stages:
     type: shell
     commands:
     - curl -fSsL https://packages.microsoft.com/ubuntu/22.04/prod/pool/main/i/intune-portal/intune-portal_1.2405.17-jammy_amd64.deb -o /tmp/intune.deb
-    - dpkg -i /tmp/intune.deb --ignore-depends=libwebkit2gtk-4.0-37
+    - dpkg -i /tmp/intune.deb --force-depends
 
   # Put your custom actions before this comment
 
