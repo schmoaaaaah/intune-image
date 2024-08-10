@@ -34,6 +34,7 @@ stages:
       packages:
       - msalsdk-dbusclient
       - msopenjdk-11
+      - libpam-pwquality
 
   - name: install-edge
     type: shell
@@ -52,17 +53,17 @@ stages:
   #  commands:
   #  - dpkg -i /sources/install-ms-deps/msalsdk-dbusclient_1.0.1_amd64.deb
   
-  - name: intune-deps
+  - name: intune
     type: apt
     source:
       packages:
-      - libpam-pwquality
+      - intune-portal
   
-  - name: install-intune
-    type: shell
-    commands:
-    - curl -fSsL https://packages.microsoft.com/ubuntu/22.04/prod/pool/main/i/intune-portal/intune-portal_1.2405.17-jammy_amd64.deb -o /tmp/intune.deb
-    - dpkg -i /tmp/intune.deb --force-depends
+  #- name: install-intune
+  #  type: shell
+  #  commands:
+  #  - curl -fSsL https://packages.microsoft.com/ubuntu/22.04/prod/pool/main/i/intune-portal/intune-portal_1.2405.17-jammy_amd64.deb -o /tmp/intune.deb
+  #  - dpkg -i /tmp/intune.deb --force-depends
 
   # Put your custom actions before this comment
 
