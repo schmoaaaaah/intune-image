@@ -21,11 +21,20 @@ stages:
     - lpkg --unlock
     - apt-get update
   
+  - name: ms-repo
+    type: shell
+    source:
+      type: file
+      url: 'https://packages.microsoft.com/config/debian/12/packages-microsoft-prod.deb'
+    commands:
+    - dpkg -i /sources/ms-repo/packages-microsoft-prod.deb
+  
   - name: install-deps
     type: apt
     source:
       packages:
       - libwebkit2gtk
+      - msalsdk-dbusclient
 
   - name: install-edge
     type: shell
@@ -36,19 +45,21 @@ stages:
     - apt update
     - apt install -y microsoft-edge-stable
 
-  - name: install-ms-deps
-    type: shell
-    commands:
-    - wget -O /tmp/msalsdk-dbusclient.deb 'https://packages.microsoft.com/ubuntu/22.04/prod/pool/main/m/msalsdk-dbusclient/msalsdk-dbusclient_1.0.1_amd64.deb'
-    - apt install -y /tmp/msalsdk-dbusclient.deb
-    - rm -f /tmp/msalsdk-dbusclient.deb
+  #- name: install-ms-deps
+  #  type: shell
+  #  source:
+  #    type: file
+  #    urlL: 'https://packages.microsoft.com/ubuntu/22.04/prod/pool/main/m/msalsdk-dbusclient/msalsdk-dbusclient_1.0.1_amd64.deb'
+  #  commands:
+  #  - dpkg -i /sources/install-ms-deps/msalsdk-dbusclient_1.0.1_amd64.deb
   
   - name: install-intune
     type: shell
+    source:
+      type: file
+      url: 'https://packages.microsoft.com/ubuntu/22.04/prod/pool/main/i/intune-portal/intune-portal_1.2405.17-jammy_amd64.deb'
     commands:
-    - wget -O /tmp/intune.deb 'https://packages.microsoft.com/ubuntu/22.04/prod/pool/main/i/intune-portal/intune-portal_1.2211.21_amd64.deb'
-    - apt install -y /tmp/intune.deb
-    - rm -f /tmp/intune.deb
+    - dpkg -i /sources/install-intune/intune-portal_1.2211.21_amd64.deb
 
   # Put your custom actions before this comment
 
